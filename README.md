@@ -1,5 +1,5 @@
 
-# NestJs - DB Transaction by Interceptor
+# NestJs - DB Transaction using Interceptor
 
 This repository shows how to implement Database Transactions using Interceptor in NestJs framework with TypeORM.
 
