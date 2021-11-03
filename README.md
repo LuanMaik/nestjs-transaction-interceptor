@@ -39,7 +39,7 @@ Running the application:
 ```
 
 
-Making a request using Javascript (run in your console terminal and check the console application):
+Making a request using Javascript (run in your browser console and check the console application):
 
 **ATTENTION:** to create a real case, the OrderRepository is configured to throw exception randomly 
 during the Order creation, allowing us to check the consistency during successful or error operation.
