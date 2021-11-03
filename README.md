@@ -9,7 +9,7 @@ The intent of this repository is to show a way to handle transactions with TypeO
 
 ---
 
-## Example
+## Example usage
 ```
 @Post()
 @UseInterceptors(TransactionInterceptor) // Create a Transaction operation
