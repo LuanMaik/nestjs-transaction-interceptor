@@ -69,7 +69,7 @@ fetch("http://localhost:3000/v1/order", requestOptions)
 ```
 
 
-## How this works
+## How it works
 
 This implementation uses a Interceptor class called TransactionInterceptor to start the transaction and inject the Entity Manager in Request object.
 
@@ -89,7 +89,7 @@ export class TransactionInterceptor implements NestInterceptor {
     await queryRunner.connect();
     await queryRunner.startTransaction();
     
-    req.transaction = queryRunner.manager; // <-- inject the entity manager to be retrieve by the TransactionParam decorator
+    req.transaction = queryRunner.manager; // <-- inject the transactional entity manager in request to be retrieve by the TransactionParam decorator
 
     return next.handle().pipe(
       tap(async () => {
