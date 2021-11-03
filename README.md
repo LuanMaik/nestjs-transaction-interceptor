@@ -89,7 +89,7 @@ export class TransactionInterceptor implements NestInterceptor {
     await queryRunner.connect();
     await queryRunner.startTransaction();
     
-    req.transaction = queryRunner.manager; // <-- inject the transactional entity manager in request to be retrieve by the TransactionParam decorator
+    req.transaction = queryRunner.manager; // <-- inject the transactional entity manager in request to be retrieved by the TransactionParam decorator
 
     return next.handle().pipe(
       tap(async () => {
