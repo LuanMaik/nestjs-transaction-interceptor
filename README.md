@@ -133,19 +133,19 @@ export const TransactionParam = createParamDecorator(
 export class OrderController {
   constructor(
     private readonly orderService: OrderService,
-    @InjectEntityManager() private readonly entityManager: EntityManager, // manager to use in non transaction operations
+    @InjectEntityManager() private readonly entityManager: EntityManager, // manager to use in non transactional operations
   ) {
     console.log('###### Controller loaded'); // just to check if controller is loaded multiple times because of some dependency
   }
 
   @Get()
   async all(): Promise<Order[]> {
-    return await this.orderService.getAll(this.entityManager);
+    return await this.orderService.getAll(this.entityManager); // non transactional operation
   }
 
   @Get(':id')
   async getById(@Param('id') id: number): Promise<Order> {
-    return await this.orderService.getById(this.entityManager, id);
+    return await this.orderService.getById(this.entityManager, id); // non transactional operation
   }
 
   @Post()
@@ -154,7 +154,7 @@ export class OrderController {
     @TransactionParam() entityManager: EntityManager, // Get the transactional EntityManager created by TransactionInterceptor above
     @Body() orderDto: CreateOrderRequestDto,
   ): Promise<Order> {
-    return await this.orderService.createOrder(entityManager, orderDto);
+    return await this.orderService.createOrder(entityManager, orderDto); // transactional operation
   }
 }
 ```
